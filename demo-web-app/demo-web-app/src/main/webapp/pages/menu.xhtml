@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Bienvenido al ERP</title>
+</h:head>
+
+<h:body>
+    <h:panelGrid columns="2">
+        <h:panelGroup layout="block">
+            <p:menu>
+                <p:submenu label="Módulo de Ventas">
+                    <p:menuitem value="Ventas" />
+                    <p:menuitem value="Clientes" />
+                </p:submenu>
+                <p:submenu label="Módulo de Compras">
+                    <p:menuitem value="Compras" />
+                    <p:menuitem value="Proveedores" />
+                </p:submenu>
+                <p:submenu label="Módulo de Contabilidad">
+                    <p:menuitem value="Contabilidad General" />
+                    <p:menuitem value="Cuentas por Cobrar" />
+                    <p:menuitem value="Cuentas por Pagar" />
+                </p:submenu>
+                <p:submenu label="Módulo de Producción">
+                    <p:menuitem value="Producción" />
+                    <p:menuitem value="Inventario" />
+                </p:submenu>
+            </p:menu>
+        </h:panelGroup>
+
+        <h:panelGroup layout="block">
+            <h:outputText value="Bienvenido al ERP" />
+            <h:outputText value="Seleccione un módulo para comenzar." />
+        </h:panelGroup>
+    </h:panelGrid>
+</h:body>
+
+</html>
