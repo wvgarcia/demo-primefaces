@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Registrar Clientes</title>
+    <style type="text/css">
+        /* Ajustes para alinear labels y campos en el panel */
+        .labelCol { width: 35%; padding-right: 10px; text-align: right; vertical-align: middle; }
+        .fieldCol { width: 65%; }
+        /* Forzar que los inputs ocupen todo el ancho de la celda */
+        .ui-inputfield { width: 100% !important; box-sizing: border-box; }
+        /* Espaciado entre botones del footer */
+        .panel-footer .ui-button { margin-right: 8px; }
+    </style>
+</h:head>
+
+<h:body>
+    <p:messages id="msjClientes" showDetail="true" closable="true">
+        <p:autoUpdate />
+    </p:messages>
+
+    <h:form id="client-form">
+        <p:panel header="Altas de Clientes" style="width: 600px; margin:auto;">
+
+            <h:panelGrid columns="2" cellpadding="10" columnClasses="labelCol,fieldCol">
+                <p:outputLabel for="nombre" value="Nombre del Cliente :" />
+                <p:inputText id="nombre" value="#{cliente.nombre}" required="true" style="width:100%" />
+
+                <p:outputLabel for="apellido" value="Apellido :" />
+                <p:inputText id="apellido" value="#{cliente.apellido}" required="true" style="width:100%" />
+
+                <p:outputLabel for="correo" value="Correo :" />
+                <p:inputText id="correo" value="#{cliente.correo}" required="true" validatorMessage="Correo inválido" style="width:100%">
+                    <!-- Regex simple para validar formato básico de email -->
+                    <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$" />
+                </p:inputText>
+
+                <p:outputLabel for="telefono" value="Teléfono :" />
+                <!-- Usar inputMask para formato fijo; ajustar máscara según país -->
+                <p:inputMask id="telefono" mask="(999) 9999-9999" value="#{cliente.telefono}" required="true" style="width:100%" />
+
+                <p:outputLabel for="direccion" value="Dirección :" />
+                <p:inputText id="direccion" value="#{cliente.direccion}" required="true" style="width:100%" />
+
+            </h:panelGrid>
+
+            <f:facet name="footer">
+                <p:commandButton value="Registrar" action="#{cliente.registrarCliente()}" update=":client-form" />
+                <p:commandButton value="Cancelar" action="registrar?faces-redirect=true" immediate="true" />
+            </f:facet>
+        </p:panel>
+
+    </h:form>
+</h:body>
+
+</html>
