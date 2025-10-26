@@ -8,8 +8,8 @@
     <title>Registrar Clientes</title>
     <style type="text/css">
         /* Ajustes para alinear labels y campos en el panel */
-        .labelCol { width: 35%; padding-right: 10px; text-align: right; vertical-align: middle; }
-        .fieldCol { width: 65%; }
+        .labelCol { width: 40%; padding-right: 10px; text-align: right; vertical-align: middle; }
+        .fieldCol { width: 60%; }
         /* Forzar que los inputs ocupen todo el ancho de la celda */
         .ui-inputfield { width: 100% !important; box-sizing: border-box; }
         /* Espaciado entre botones del footer */
@@ -22,8 +22,10 @@
         <p:autoUpdate />
     </p:messages>
 
+
+    <!-- margin:auto; -->
     <h:form id="client-form">
-        <p:panel header="Altas de Clientes" style="width: 600px; margin:auto;">
+        <p:panel header="Altas de Clientes" style="width: 800px; margin:auto;">
 
             <h:panelGrid columns="2" cellpadding="10" columnClasses="labelCol,fieldCol">
                 <p:outputLabel for="nombre" value="Nombre del Cliente :" />
@@ -39,11 +41,10 @@
                 </p:inputText>
 
                 <p:outputLabel for="telefono" value="Teléfono :" />
-                <!-- Usar inputMask para formato fijo; ajustar máscara según país -->
                 <p:inputMask id="telefono" mask="(999) 9999-9999" value="#{cliente.telefono}" required="true" style="width:100%" />
 
                 <p:outputLabel for="direccion" value="Dirección :" />
-                <p:inputText id="direccion" value="#{cliente.direccion}" required="true" style="width:100%" />
+                <p:inputText id="direccion" value="#{cliente.direccion}" required="true" style="width:100%" /> 
 
             </h:panelGrid>
 
